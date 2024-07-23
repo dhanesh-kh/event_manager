@@ -210,6 +210,26 @@ async def manager_user(db_session: AsyncSession):
     await db_session.commit()
     return user
 
+@pytest.fixture
+def admin_token():
+    """Fixture for generating an admin JWT token."""
+    return create_access_token(
+        data={"role": UserRole.ADMIN.value, "sub": "admin_user_id"},
+    )
+
+@pytest.fixture
+def user_token():
+    """Fixture for generating a regular user JWT token."""
+    return create_access_token(
+        data={"role": UserRole.AUTHENTICATED.value, "sub": "regular_user_id"},
+    )
+
+@pytest.fixture
+def manager_token():
+    """Fixture for generating a regular user JWT token."""
+    return create_access_token(
+        data={"role": UserRole.MANAGER.value, "sub": "regular_user_id"},
+    )
 
 # Fixtures for common test data
 @pytest.fixture
