@@ -243,6 +243,8 @@ def user_update_data():
     return {
         "email": "john.doe.new@example.com",
         "full_name": "John H. Doe",
+        "first_name": "John",
+        "last_name": "Doe",
         "bio": "I specialize in backend development with Python and Node.js.",
         "profile_picture_url": "https://example.com/profile_pictures/john_doe_updated.jpg"
     }
